@@ -1,0 +1,28 @@
+﻿[
+    {
+        "id":  2,
+        "farmer":  "Ahmet Demir",
+        "farmName":  "Demir Kuru TarÄ±m ÃiftliÄi",
+        "city":  "ÅanlÄ±urfa",
+        "district":  "ViranÅehir",
+        "crop":  "Mercimek (kÄ±rmÄ±zÄ±) - Lentil (red)",
+        "strategy":  "Sezonluk Uygulama PlanÄ±",
+        "result":  "300.0 kg/da",
+        "note":  "wrsydtufy",
+        "date":  "2026-11-15",
+        "rating":  "5.0 / 5"
+    },
+    {
+        "id":  1,
+        "farmer":  "Ahmet Demir",
+        "farmName":  "Demir Kuru TarÄ±m ÃiftliÄi",
+        "city":  "ÅanlÄ±urfa",
+        "district":  "ViranÅehir",
+        "crop":  "Mercimek (kÄ±rmÄ±zÄ±) - Lentil (red)",
+        "strategy":  "Sezonluk Uygulama PlanÄ±",
+        "result":  "150.0 kg/da",
+        "note":  "xcfvghbj",
+        "date":  "2026-11-15",
+        "rating":  "4.5 / 5"
+    }
+]

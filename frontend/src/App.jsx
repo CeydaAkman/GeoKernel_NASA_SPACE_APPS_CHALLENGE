@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import StrategyPage from "./pages/StrategyPage";
 import PlanPage from "./pages/PlanPage";
+import ExperiencesPage from "./pages/ExperiencesPage"; // <-- Eksik olan import buraya eklendi
 
 const SESSION_KEY = "geokernel_active_user_v1";
 
@@ -45,7 +46,7 @@ export default function App() {
 
   const handleSyncActiveData = useCallback((field, analysis) => {
     setStrategyData({ field, analysis });
-  }, []);
+  }, [],);
 
   const handleOpenStrategyPage = (field, analysis) => {
     setStrategyData({ field, analysis });
@@ -53,7 +54,6 @@ export default function App() {
     window.scrollTo(0, 0);
   };
 
-  // Plan sayfasına git (Nesne parametresi olarak güncellendi)
   const handleOpenPlan = ({ field, crop, operations }) => {
     setSelectedPlan({
       field,
@@ -114,6 +114,11 @@ export default function App() {
           crop={selectedPlan?.crop}
           operations={selectedPlan?.operations || []}
           onBack={handleBackFromPlan}
+        />
+      ) : activePage === "experiences" ? (
+        <ExperiencesPage
+          user={user}
+          onBack={() => setActivePage("dashboard")}
         />
       ) : (
         <Dashboard

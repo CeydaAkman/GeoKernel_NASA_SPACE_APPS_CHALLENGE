@@ -83,6 +83,14 @@ export default function Header({ user, activePage, onNavigate, onLogout }) {
           >
             Ekim Stratejisi
           </button>
+
+          <button
+            type="button"
+            onClick={() => onNavigate("experiences")}
+            style={navButtonStyle("experiences")}
+          >
+            Yakındaki Deneyimler
+          </button>
         </nav>
 
         {/* Sağ Taraf: Çıkış Yap Butonu */}

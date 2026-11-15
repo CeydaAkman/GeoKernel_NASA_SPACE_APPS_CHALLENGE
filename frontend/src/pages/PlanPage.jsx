@@ -101,7 +101,9 @@ export default function PlanPage({
             : operations.filter((op) => op.category === activeFilter);
 
     // Geri bildirimi kaydet ve sayfayı sıfırla
-    const submitFeedback = () => {
+    // Geri bildirimi veritabanına kaydet
+    // Geri bildirimi veritabanına kaydet
+    const submitFeedback = async () => {
         if (!rating || !feedback.trim()) {
             alert("Lütfen değerlendirme seçin ve gözlemlerinizi yazın.");
             return;
@@ -109,47 +111,58 @@ export default function PlanPage({
 
         setSubmitting(true);
 
-        const completedPlanRecord = {
-            id: Date.now(),
-            fieldId: field.id,
-            fieldName: field.name,
-            userId: user?.id || 1,
-            crop,
-            operations,
-            statuses,
-            rating,
-            feedback: feedback.trim(),
-            yieldValue: yieldValue || "-",
-            yieldUnit,
-            createdAt: new Date().toISOString(),
-        };
-
-        // Geçmiş planlar listesine (localStorage) ekle
         try {
-            const existingHistory = JSON.parse(
-                localStorage.getItem(HISTORY_STORAGE_KEY) || "[]"
-            );
-            localStorage.setItem(
-                HISTORY_STORAGE_KEY,
-                JSON.stringify([completedPlanRecord, ...existingHistory])
-            );
+            const payload = {
+                userId: user?.id || 1,
+                fieldId: field.id,
+                crop: crop,
+                operations: operations,
+                statuses: statuses,
+                rating: rating,
+                feedback: feedback.trim(),
+                // Boş bırakıldıysa 0 göndererek FastAPI 422 hatasını önlüyoruz
+                yieldValue: yieldValue ? parseFloat(yieldValue) : 0.0,
+                yieldUnit: yieldUnit,
+            };
+
+            // FastAPI backend'ine POST isteği
+            const response = await fetch("http://localhost:8000/api/plans", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const errData = await response.json();
+                throw new Error(errData.detail || "Plan veritabanına kaydedilemedi.");
+            }
+
+            const result = await response.json();
+
+            // Tarayıcı yerel taslağını temizle
+            localStorage.removeItem(storageKey);
+            
+            // Form alanlarını sıfırla
+            setStatuses({});
+            setFeedback("");
+            setRating("");
+            setYieldValue("");
+            setYieldUnit("kg/da");
+            setActiveFilter("Tümü");
+
+            alert(result.message || "Plan başarıyla veritabanına kaydedildi! 🎉");
+            
+            // Başarılı kayıt sonrası Yakındaki Deneyimler sayfasına yönlendir veya geri dön
+            if (onBack) onBack();
+
         } catch (err) {
-            console.error("Yerel geçmiş kaydı oluşturulamadı:", err);
+            console.error("Veritabanı kayıt hatası:", err);
+            alert(`Kayıt Başarısız: ${err.message}`);
+        } finally {
+            setSubmitting(false);
         }
-
-        // Aktif taslağı sil ve sayfadaki tüm alanları sıfırla
-        localStorage.removeItem(storageKey);
-        setStatuses({});
-        setFeedback("");
-        setRating("");
-        setYieldValue("");
-        setYieldUnit("kg/da");
-        setActiveFilter("Tümü");
-        setSubmitting(false);
-
-        alert(
-            "Plan ve sezon sonu değerlendirmeniz kaydedildi! Geçmiş Plan Kayıtları bölümünden detayları inceleyebilirsiniz."
-        );
     };
 
     if (!field || !crop) {

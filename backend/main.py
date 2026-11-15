@@ -2,6 +2,15 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from tuik_client import get_top_crops_by_city, get_crop_by_name, get_strategy_crops
+from database import (
+    init_db,
+    register_user_db,
+    login_user_db,
+    get_fields_by_user_db,
+    create_field_db,
+    save_plan_db,
+    get_field_plans_db,
+)
 import glob
 import json
 import math
@@ -16,6 +25,7 @@ from analyzer import analyze_parcel, normalize_crop_key, build_impact_and_calend
 from thresholds import CROP_THRESHOLDS
 from database import (
     init_db,
+    get_connection,
     register_user_db,
     login_user_db,
     get_fields_by_user_db,
@@ -23,7 +33,6 @@ from database import (
     save_plan_db,
     get_field_plans_db,
 )
-
 init_db()
 
 app = FastAPI(title="GeoKernel — Field Shift GAP API")
@@ -364,4 +373,43 @@ def api_top_crops_by_city(city: str = Query(..., min_length=1)):
             detail=f"Şehir ürün verileri alınamadı: {str(error)}"
         )
 
+def get_all_experiences_db():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT p.*, f.name as field_name, f.city as field_city, f.district as field_district,
+               u.full_name, u.farm_name, u.city as user_city
+        FROM plans p
+        JOIN fields f ON p.field_id = f.id
+        JOIN users u ON p.user_id = u.id
+        ORDER BY p.id DESC
+    """)
+    rows = cursor.fetchall()
+    conn.close()
+    
+    results = []
+    for row in rows:
+        rating_map = {"very_good": "5.0 / 5", "good": "4.5 / 5", "average": "3.5 / 5", "poor": "2.5 / 5"}
+        rating_str = rating_map.get(row["rating"], "4.8 / 5")
 
+        results.append({
+            "id": row["id"],
+            "farmer": row["full_name"],
+            "farmName": row["farm_name"],
+            "city": row["field_city"] or row["user_city"] or "Şanlıurfa",
+            "district": row["field_district"] or "Merkez",
+            "crop": row["crop"],
+            "strategy": "Sezonluk Uygulama Planı",
+            "result": f"{row['yield_value']} {row['yield_unit']}" if row['yield_value'] else "Plan Tamamlandı",
+            "note": row["feedback"] or "Gözlem notu paylaşılmadı.",
+            "date": row["completed_at"][:10] if row["completed_at"] else "Kasım 2026",
+            "rating": rating_str
+        })
+    return results
+
+@app.get("/api/experiences")
+def api_get_experiences():
+    try:
+        return get_all_experiences_db()
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error))

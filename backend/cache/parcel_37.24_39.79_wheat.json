@@ -1,0 +1,144 @@
+{
+  "location": {
+    "name": "İlk",
+    "lat": 37.24,
+    "lon": 39.79
+  },
+  "risk_score": 25,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 113 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %85 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "4 Kasım - 14 Kasım",
+    "shift_days": "+20 gün"
+  },
+  "crop_advice": {
+    "current_crop": "Makarnalık Buğday",
+    "status": "Düşük Risk — İklim Koşulları Uygun",
+    "recommended_crop": "Makarnalık Buğday (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%32 rekolte kaybı önlenir"
+  },
+  "impact_metrics": {
+    "water_saved_m3_da": 163,
+    "water_saved_pct": 30,
+    "resource_saving_pct": 14,
+    "soil_fertility_change": "%-2",
+    "soil_fertility_note": "Baklagil rotasyonuyla desteklenmesi önerilir",
+    "estimated_yield_kg_da": 397,
+    "net_profit_tl_da": 2235,
+    "projection_series": [
+      {
+        "year": "2026",
+        "soil_fertility_index": 75,
+        "resource_usage_index": 86,
+        "net_profit_tl": 2235
+      },
+      {
+        "year": "2027",
+        "soil_fertility_index": 74,
+        "resource_usage_index": 84,
+        "net_profit_tl": 2269
+      },
+      {
+        "year": "2028",
+        "soil_fertility_index": 73,
+        "resource_usage_index": 81,
+        "net_profit_tl": 2302
+      },
+      {
+        "year": "2029",
+        "soil_fertility_index": 72,
+        "resource_usage_index": 78,
+        "net_profit_tl": 2336
+      }
+    ],
+    "operations": [
+      {
+        "category": "Ekim",
+        "title": "Taban Gübreli Sertifikalı Tohum Ekimi",
+        "window": "4 Kasım - 14 Kasım",
+        "detail": "Dekara 20-22 kg kurakçıl sertifikalı tohum, 5-6 cm ekim derinliği."
+      },
+      {
+        "category": "Gübreleme",
+        "title": "Taban (DAP) ve Bahar Üst (Üre) Gübrelemesi",
+        "window": "Ekim Sırası & 15 Şubat - 10 Mart",
+        "detail": "Ekimde 15 kg/da DAP; kardeşlenme başlangıcında yağış öncesi 12 kg/da Üre."
+      },
+      {
+        "category": "Sulama",
+        "title": "Kritik Dönem Destek Sulaması (2 Uygulama)",
+        "window": "10 - 25 Nisan (Başaklanma) & 10 - 20 Mayıs (Süt Olum)",
+        "detail": "Yağışsız geçen baharlarda yağmurlama/damla ile yalnızca kritik fenolojik evrede verilir."
+      },
+      {
+        "category": "İlaçlama",
+        "title": "Geniş Yapraklı Yabancı Ot & Süne Kontrolü",
+        "window": "1 - 20 Mart (Ot) & 1 - 15 Mayıs (Süne)",
+        "detail": "Kardeşlenme sonu herbisit; başaklanma sonrası ekonomik zarar eşiğinde süne mücadelesi."
+      }
+    ]
+  },
+  "farmer_sms": "UYARI (İlk): Kök bölgesi nemi ortalamanın %9 üzerinde olsa da sonbahar toprak sıcaklığı çimlenme eşiğinin üstünde seyrediyor. Erken ekim stresine karşı 4 Kasım - 14 Kasım aralığını bekleyin. Öneri: Makarnalık Buğday (Mevcut Ürün Sürdürülebilir).",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 357.0,
+      "root_moisture": 0.56
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 369.7,
+      "root_moisture": 0.53
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 224.9,
+      "root_moisture": 0.52
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 587.3,
+      "root_moisture": 0.54
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 600.1,
+      "root_moisture": 0.65
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 393.7,
+      "root_moisture": 0.58
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 167.4,
+      "root_moisture": 0.5
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 349.9,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 463.6,
+      "root_moisture": 0.55
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 419.7,
+      "root_moisture": 0.57
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 287.1,
+      "root_moisture": 0.49
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 627.3,
+      "root_moisture": 0.65
+    }
+  ]
+}
