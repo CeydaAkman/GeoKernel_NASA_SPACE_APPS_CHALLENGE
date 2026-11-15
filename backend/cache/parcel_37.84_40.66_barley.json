@@ -1,0 +1,144 @@
+{
+  "location": {
+    "name": "Bismil Kuru Tarım Parseli (Diyarbakır)",
+    "lat": 37.84,
+    "lon": 40.66
+  },
+  "risk_score": 29,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 80 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %82 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "15 Ekim - 25 Ekim",
+    "shift_days": "Zamanında Ekim (0 gün kayma)"
+  },
+  "crop_advice": {
+    "current_crop": "Arpa",
+    "status": "Düşük Risk — İklim Koşulları Uygun",
+    "recommended_crop": "Arpa (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%18 rekolte kaybı önlenir"
+  },
+  "impact_metrics": {
+    "water_saved_m3_da": 253,
+    "water_saved_pct": 47,
+    "resource_saving_pct": 24,
+    "soil_fertility_change": "+%6",
+    "soil_fertility_note": "Toprağa doğal azot bağlayarak organik maddeyi artırır",
+    "estimated_yield_kg_da": 449,
+    "net_profit_tl_da": 2330,
+    "projection_series": [
+      {
+        "year": "2026",
+        "soil_fertility_index": 75,
+        "resource_usage_index": 76,
+        "net_profit_tl": 2330
+      },
+      {
+        "year": "2027",
+        "soil_fertility_index": 77,
+        "resource_usage_index": 74,
+        "net_profit_tl": 2423
+      },
+      {
+        "year": "2028",
+        "soil_fertility_index": 80,
+        "resource_usage_index": 71,
+        "net_profit_tl": 2516
+      },
+      {
+        "year": "2029",
+        "soil_fertility_index": 83,
+        "resource_usage_index": 68,
+        "net_profit_tl": 2610
+      }
+    ],
+    "operations": [
+      {
+        "category": "Ekim",
+        "title": "Erkenci 2-Sıralı Kurakçıl Arpa Ekimi",
+        "window": "15 Ekim - 25 Ekim",
+        "detail": "Dekara 18-20 kg tohum; düşük nemde bile hızlı çimlenme ve toprak örtüsü sağlar."
+      },
+      {
+        "category": "Gübreleme",
+        "title": "Düşük Doz Kontrollü Taban ve Kardeşlenme Gübresi",
+        "window": "Ekim Sırası & 1 - 20 Şubat",
+        "detail": "Buğdaya kıyasla %20 daha az azot tüketir; yatma riskine karşı erken baharda tek seferde uygulanır."
+      },
+      {
+        "category": "Sulama",
+        "title": "Sapa Kalkma Dönemi Tek Destek Sulaması",
+        "window": "25 Mart - 12 Nisan",
+        "detail": "Erken olgunlaştığı için Mayıs sıcak dalgalarından önce dane dolumunu tamamlar."
+      },
+      {
+        "category": "İlaçlama",
+        "title": "Arpa Yaprak Lekesi & Yabancı Ot Kontrolü",
+        "window": "20 Şubat - 15 Mart",
+        "detail": "Erken kardeşlenme döneminde tek geçişli yaprak koruma uygulaması yeterlidir."
+      }
+    ]
+  },
+  "farmer_sms": "BİLGİ (Bismil Kuru Tarım Parseli (Diyarbakır)): Kök bölgesi nemi ve toprak sıcaklığı geleneksel ekim takvimiyle uyumlu. 15 Ekim - 25 Ekim aralığında Arpa ekimi güvenle yapılabilir.",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 453.4,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 490.9,
+      "root_moisture": 0.61
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 340.9,
+      "root_moisture": 0.6
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 693.1,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 661.2,
+      "root_moisture": 0.69
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 563.4,
+      "root_moisture": 0.65
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 259.9,
+      "root_moisture": 0.56
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 419.5,
+      "root_moisture": 0.59
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 568.4,
+      "root_moisture": 0.61
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 489.5,
+      "root_moisture": 0.63
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 377.1,
+      "root_moisture": 0.57
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 646.7,
+      "root_moisture": 0.68
+    }
+  ]
+}

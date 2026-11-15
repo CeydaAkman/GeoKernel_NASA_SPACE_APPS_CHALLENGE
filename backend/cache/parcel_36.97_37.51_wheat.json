@@ -1,0 +1,144 @@
+{
+  "location": {
+    "name": "Oğuzeli Parseli (Gaziantep)",
+    "lat": 36.97,
+    "lon": 37.51
+  },
+  "risk_score": 31,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 80 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %82 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "18 Ekim - 28 Ekim",
+    "shift_days": "+3 gün"
+  },
+  "crop_advice": {
+    "current_crop": "Makarnalık Buğday",
+    "status": "Düşük Risk — İklim Koşulları Uygun",
+    "recommended_crop": "Makarnalık Buğday (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%32 rekolte kaybı önlenir"
+  },
+  "impact_metrics": {
+    "water_saved_m3_da": 163,
+    "water_saved_pct": 30,
+    "resource_saving_pct": 14,
+    "soil_fertility_change": "%-2",
+    "soil_fertility_note": "Baklagil rotasyonuyla desteklenmesi önerilir",
+    "estimated_yield_kg_da": 389,
+    "net_profit_tl_da": 2140,
+    "projection_series": [
+      {
+        "year": "2026",
+        "soil_fertility_index": 75,
+        "resource_usage_index": 86,
+        "net_profit_tl": 2140
+      },
+      {
+        "year": "2027",
+        "soil_fertility_index": 74,
+        "resource_usage_index": 84,
+        "net_profit_tl": 2172
+      },
+      {
+        "year": "2028",
+        "soil_fertility_index": 73,
+        "resource_usage_index": 81,
+        "net_profit_tl": 2204
+      },
+      {
+        "year": "2029",
+        "soil_fertility_index": 72,
+        "resource_usage_index": 78,
+        "net_profit_tl": 2236
+      }
+    ],
+    "operations": [
+      {
+        "category": "Ekim",
+        "title": "Taban Gübreli Sertifikalı Tohum Ekimi",
+        "window": "18 Ekim - 28 Ekim",
+        "detail": "Dekara 20-22 kg kurakçıl sertifikalı tohum, 5-6 cm ekim derinliği."
+      },
+      {
+        "category": "Gübreleme",
+        "title": "Taban (DAP) ve Bahar Üst (Üre) Gübrelemesi",
+        "window": "Ekim Sırası & 15 Şubat - 10 Mart",
+        "detail": "Ekimde 15 kg/da DAP; kardeşlenme başlangıcında yağış öncesi 12 kg/da Üre."
+      },
+      {
+        "category": "Sulama",
+        "title": "Kritik Dönem Destek Sulaması (2 Uygulama)",
+        "window": "10 - 25 Nisan (Başaklanma) & 10 - 20 Mayıs (Süt Olum)",
+        "detail": "Yağışsız geçen baharlarda yağmurlama/damla ile yalnızca kritik fenolojik evrede verilir."
+      },
+      {
+        "category": "İlaçlama",
+        "title": "Geniş Yapraklı Yabancı Ot & Süne Kontrolü",
+        "window": "1 - 20 Mart (Ot) & 1 - 15 Mayıs (Süne)",
+        "detail": "Kardeşlenme sonu herbisit; başaklanma sonrası ekonomik zarar eşiğinde süne mücadelesi."
+      }
+    ]
+  },
+  "farmer_sms": "UYARI (Oğuzeli Parseli (Gaziantep)): Kök bölgesi nemi uzun yıllar ortalamasının %2 altında. 15 Ekim'de erken ekim yapmayın; güvenli nem penceresi olan 18 Ekim - 28 Ekim aralığını bekleyin. Öneri: Makarnalık Buğday (Mevcut Ürün Sürdürülebilir).",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 478.0,
+      "root_moisture": 0.74
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 378.8,
+      "root_moisture": 0.66
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 276.1,
+      "root_moisture": 0.68
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 741.3,
+      "root_moisture": 0.71
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 693.0,
+      "root_moisture": 0.76
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 442.8,
+      "root_moisture": 0.73
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 280.2,
+      "root_moisture": 0.67
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 382.4,
+      "root_moisture": 0.67
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 411.1,
+      "root_moisture": 0.69
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 414.7,
+      "root_moisture": 0.7
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 207.8,
+      "root_moisture": 0.64
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 715.9,
+      "root_moisture": 0.75
+    }
+  ]
+}

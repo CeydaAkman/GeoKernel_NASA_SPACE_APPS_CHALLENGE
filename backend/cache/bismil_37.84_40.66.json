@@ -1,0 +1,83 @@
+{
+  "location": {
+    "name": "Bismil Geçiş Kuşağı (Diyarbakır)",
+    "lat": 37.84,
+    "lon": 40.66
+  },
+  "risk_score": 30,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 80 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %82 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "20 Ekim - 30 Ekim",
+    "shift_days": "+5 gün"
+  },
+  "crop_advice": {
+    "current_crop": "Makarnalık Buğday",
+    "status": "Orta Risk - Kontrollü Üretim Uygun",
+    "recommended_crop": "Makarnalık Buğday (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%32 rekolte kaybı önlenir"
+  },
+  "farmer_sms": "UYARI (Bismil Geçiş Kuşağı (Diyarbakır)): Kök bölgesi nemi uzun yıllar ortalamasının %1 altında. 15 Ekim'de ekim yapmayın; 20 Ekim - 30 Ekim aralığını bekleyin. Öneri: Makarnalık Buğday (Mevcut Ürün Sürdürülebilir).",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 453.4,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 490.9,
+      "root_moisture": 0.61
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 340.9,
+      "root_moisture": 0.6
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 693.1,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 661.2,
+      "root_moisture": 0.69
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 563.4,
+      "root_moisture": 0.65
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 259.9,
+      "root_moisture": 0.56
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 419.5,
+      "root_moisture": 0.59
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 568.4,
+      "root_moisture": 0.61
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 489.5,
+      "root_moisture": 0.63
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 377.1,
+      "root_moisture": 0.57
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 646.7,
+      "root_moisture": 0.68
+    }
+  ]
+}

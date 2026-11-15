@@ -1,0 +1,144 @@
+{
+  "location": {
+    "name": "Ergani Parseli (Diyarbakır)",
+    "lat": 38.27,
+    "lon": 39.76
+  },
+  "risk_score": 25,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 80 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %82 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "2 Ekim - 12 Ekim",
+    "shift_days": "-13 gün"
+  },
+  "crop_advice": {
+    "current_crop": "Makarnalık Buğday",
+    "status": "Düşük Risk — İklim Koşulları Uygun",
+    "recommended_crop": "Makarnalık Buğday (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%32 rekolte kaybı önlenir"
+  },
+  "impact_metrics": {
+    "water_saved_m3_da": 163,
+    "water_saved_pct": 30,
+    "resource_saving_pct": 14,
+    "soil_fertility_change": "%-2",
+    "soil_fertility_note": "Baklagil rotasyonuyla desteklenmesi önerilir",
+    "estimated_yield_kg_da": 397,
+    "net_profit_tl_da": 2235,
+    "projection_series": [
+      {
+        "year": "2026",
+        "soil_fertility_index": 75,
+        "resource_usage_index": 86,
+        "net_profit_tl": 2235
+      },
+      {
+        "year": "2027",
+        "soil_fertility_index": 74,
+        "resource_usage_index": 84,
+        "net_profit_tl": 2269
+      },
+      {
+        "year": "2028",
+        "soil_fertility_index": 73,
+        "resource_usage_index": 81,
+        "net_profit_tl": 2302
+      },
+      {
+        "year": "2029",
+        "soil_fertility_index": 72,
+        "resource_usage_index": 78,
+        "net_profit_tl": 2336
+      }
+    ],
+    "operations": [
+      {
+        "category": "Ekim",
+        "title": "Taban Gübreli Sertifikalı Tohum Ekimi",
+        "window": "2 Ekim - 12 Ekim",
+        "detail": "Dekara 20-22 kg kurakçıl sertifikalı tohum, 5-6 cm ekim derinliği."
+      },
+      {
+        "category": "Gübreleme",
+        "title": "Taban (DAP) ve Bahar Üst (Üre) Gübrelemesi",
+        "window": "Ekim Sırası & 15 Şubat - 10 Mart",
+        "detail": "Ekimde 15 kg/da DAP; kardeşlenme başlangıcında yağış öncesi 12 kg/da Üre."
+      },
+      {
+        "category": "Sulama",
+        "title": "Kritik Dönem Destek Sulaması (2 Uygulama)",
+        "window": "10 - 25 Nisan (Başaklanma) & 10 - 20 Mayıs (Süt Olum)",
+        "detail": "Yağışsız geçen baharlarda yağmurlama/damla ile yalnızca kritik fenolojik evrede verilir."
+      },
+      {
+        "category": "İlaçlama",
+        "title": "Geniş Yapraklı Yabancı Ot & Süne Kontrolü",
+        "window": "1 - 20 Mart (Ot) & 1 - 15 Mayıs (Süne)",
+        "detail": "Kardeşlenme sonu herbisit; başaklanma sonrası ekonomik zarar eşiğinde süne mücadelesi."
+      }
+    ]
+  },
+  "farmer_sms": "UYARI (Ergani Parseli (Diyarbakır)): Kök bölgesi nemi ortalamanın %2 üzerinde olsa da sonbahar toprak sıcaklığı çimlenme eşiğinin üstünde seyrediyor. Erken ekim stresine karşı 2 Ekim - 12 Ekim aralığını bekleyin. Öneri: Makarnalık Buğday (Mevcut Ürün Sürdürülebilir).",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 473.5,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 503.6,
+      "root_moisture": 0.6
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 342.1,
+      "root_moisture": 0.58
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 745.6,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 662.9,
+      "root_moisture": 0.69
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 585.1,
+      "root_moisture": 0.65
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 351.7,
+      "root_moisture": 0.57
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 514.6,
+      "root_moisture": 0.62
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 770.7,
+      "root_moisture": 0.63
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 538.2,
+      "root_moisture": 0.64
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 471.8,
+      "root_moisture": 0.58
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 738.7,
+      "root_moisture": 0.69
+    }
+  ]
+}

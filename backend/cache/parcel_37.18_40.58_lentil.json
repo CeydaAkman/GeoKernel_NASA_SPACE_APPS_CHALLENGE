@@ -1,0 +1,144 @@
+{
+  "location": {
+    "name": "Kızıltepe Ovası Parseli (Mardin)",
+    "lat": 37.18,
+    "lon": 40.58
+  },
+  "risk_score": 25,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 80 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %85 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "4 Kasım - 14 Kasım",
+    "shift_days": "+20 gün"
+  },
+  "crop_advice": {
+    "current_crop": "Kırmızı Mercimek",
+    "status": "Düşük Risk — İklim Koşulları Uygun",
+    "recommended_crop": "Kırmızı Mercimek (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%38 rekolte kaybı önlenir"
+  },
+  "impact_metrics": {
+    "water_saved_m3_da": 295,
+    "water_saved_pct": 55,
+    "resource_saving_pct": 28,
+    "soil_fertility_change": "+%14",
+    "soil_fertility_note": "Toprağa doğal azot bağlayarak organik maddeyi artırır",
+    "estimated_yield_kg_da": 189,
+    "net_profit_tl_da": 3348,
+    "projection_series": [
+      {
+        "year": "2026",
+        "soil_fertility_index": 74,
+        "resource_usage_index": 72,
+        "net_profit_tl": 3348
+      },
+      {
+        "year": "2027",
+        "soil_fertility_index": 81,
+        "resource_usage_index": 70,
+        "net_profit_tl": 3482
+      },
+      {
+        "year": "2028",
+        "soil_fertility_index": 87,
+        "resource_usage_index": 67,
+        "net_profit_tl": 3616
+      },
+      {
+        "year": "2029",
+        "soil_fertility_index": 93,
+        "resource_usage_index": 64,
+        "net_profit_tl": 3750
+      }
+    ],
+    "operations": [
+      {
+        "category": "Ekim",
+        "title": "Kışlık Kırmızı Mercimek Ekimi",
+        "window": "4 Kasım - 14 Kasım",
+        "detail": "Dekara 12-14 kg tohum; yüzeysel kök yapısı nedeniyle kaymak tabakası kırılmalıdır."
+      },
+      {
+        "category": "Gübreleme",
+        "title": "Azot Bağlayıcı Bakteri Aşılama & Fosfor Desteği",
+        "window": "Ekim Öncesi (Sadece Taban)",
+        "detail": "Baklagil olduğu için üst azot gübresi gerekmez; %35 azot tasarrufu ve toprağa doğal azot fiksasyonu sağlar."
+      },
+      {
+        "category": "Sulama",
+        "title": "Kuru Tarım Rejimi (Tamamlayıcı Tek Su)",
+        "window": "Sadece 15 - 30 Nisan (Çiçeklenme Kuraklığında)",
+        "detail": "Kış ve erken bahar yağışlarıyla yetişir; aşırı sulama kök çürüklüğüne yol açar."
+      },
+      {
+        "category": "İlaçlama",
+        "title": "Çıkış Öncesi Yabancı Ot & Hortumlu Böcek Mücadelesi",
+        "window": "Ekim Sonrası İlk 5 Gün & 20 Mart - 10 Nisan",
+        "detail": "Dar yapraklı yabancı otlara karşı erken müdahale verim kaybını %22 önler."
+      }
+    ]
+  },
+  "farmer_sms": "UYARI (Kızıltepe Ovası Parseli (Mardin)): Kök bölgesi nemi ortalamanın %9 üzerinde olsa da sonbahar toprak sıcaklığı çimlenme eşiğinin üstünde seyrediyor. Erken ekim stresine karşı 4 Kasım - 14 Kasım aralığını bekleyin. Öneri: Kırmızı Mercimek (Mevcut Ürün Sürdürülebilir).",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 297.8,
+      "root_moisture": 0.54
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 372.7,
+      "root_moisture": 0.52
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 223.0,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 452.2,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 463.0,
+      "root_moisture": 0.6
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 343.3,
+      "root_moisture": 0.54
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 141.7,
+      "root_moisture": 0.48
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 321.5,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 378.7,
+      "root_moisture": 0.52
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 391.8,
+      "root_moisture": 0.55
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 297.3,
+      "root_moisture": 0.49
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 671.6,
+      "root_moisture": 0.65
+    }
+  ]
+}

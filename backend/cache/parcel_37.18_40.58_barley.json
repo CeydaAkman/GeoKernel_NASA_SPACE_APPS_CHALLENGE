@@ -1,0 +1,144 @@
+{
+  "location": {
+    "name": "Kızıltepe Ovası Parseli (Mardin)",
+    "lat": 37.18,
+    "lon": 40.58
+  },
+  "risk_score": 25,
+  "climate_analogue": "Son 3 yıllık iklim profiliniz, 110 km güneydeki kurak tarım kuşağının geçmiş normalleriyle %85 eşleşti.",
+  "sowing_window": {
+    "traditional": "15 Ekim - 25 Ekim",
+    "recommended": "21 Ekim - 31 Ekim",
+    "shift_days": "+6 gün"
+  },
+  "crop_advice": {
+    "current_crop": "Arpa",
+    "status": "Düşük Risk — İklim Koşulları Uygun",
+    "recommended_crop": "Arpa (Mevcut Ürün Sürdürülebilir)",
+    "expected_loss_prevented": "%18 rekolte kaybı önlenir"
+  },
+  "impact_metrics": {
+    "water_saved_m3_da": 244,
+    "water_saved_pct": 45,
+    "resource_saving_pct": 24,
+    "soil_fertility_change": "+%6",
+    "soil_fertility_note": "Toprağa doğal azot bağlayarak organik maddeyi artırır",
+    "estimated_yield_kg_da": 446,
+    "net_profit_tl_da": 2302,
+    "projection_series": [
+      {
+        "year": "2026",
+        "soil_fertility_index": 74,
+        "resource_usage_index": 76,
+        "net_profit_tl": 2302
+      },
+      {
+        "year": "2027",
+        "soil_fertility_index": 77,
+        "resource_usage_index": 74,
+        "net_profit_tl": 2394
+      },
+      {
+        "year": "2028",
+        "soil_fertility_index": 80,
+        "resource_usage_index": 71,
+        "net_profit_tl": 2486
+      },
+      {
+        "year": "2029",
+        "soil_fertility_index": 82,
+        "resource_usage_index": 68,
+        "net_profit_tl": 2578
+      }
+    ],
+    "operations": [
+      {
+        "category": "Ekim",
+        "title": "Erkenci 2-Sıralı Kurakçıl Arpa Ekimi",
+        "window": "21 Ekim - 31 Ekim",
+        "detail": "Dekara 18-20 kg tohum; düşük nemde bile hızlı çimlenme ve toprak örtüsü sağlar."
+      },
+      {
+        "category": "Gübreleme",
+        "title": "Düşük Doz Kontrollü Taban ve Kardeşlenme Gübresi",
+        "window": "Ekim Sırası & 1 - 20 Şubat",
+        "detail": "Buğdaya kıyasla %20 daha az azot tüketir; yatma riskine karşı erken baharda tek seferde uygulanır."
+      },
+      {
+        "category": "Sulama",
+        "title": "Sapa Kalkma Dönemi Tek Destek Sulaması",
+        "window": "25 Mart - 12 Nisan",
+        "detail": "Erken olgunlaştığı için Mayıs sıcak dalgalarından önce dane dolumunu tamamlar."
+      },
+      {
+        "category": "İlaçlama",
+        "title": "Arpa Yaprak Lekesi & Yabancı Ot Kontrolü",
+        "window": "20 Şubat - 15 Mart",
+        "detail": "Erken kardeşlenme döneminde tek geçişli yaprak koruma uygulaması yeterlidir."
+      }
+    ]
+  },
+  "farmer_sms": "UYARI (Kızıltepe Ovası Parseli (Mardin)): Kök bölgesi nemi ortalamanın %9 üzerinde olsa da sonbahar toprak sıcaklığı çimlenme eşiğinin üstünde seyrediyor. Erken ekim stresine karşı 21 Ekim - 31 Ekim aralığını bekleyin. Öneri: Arpa (Mevcut Ürün Sürdürülebilir).",
+  "chart_data": [
+    {
+      "year": "2015",
+      "rainfall_mm": 297.8,
+      "root_moisture": 0.54
+    },
+    {
+      "year": "2016",
+      "rainfall_mm": 372.7,
+      "root_moisture": 0.52
+    },
+    {
+      "year": "2017",
+      "rainfall_mm": 223.0,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2018",
+      "rainfall_mm": 452.2,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2019",
+      "rainfall_mm": 463.0,
+      "root_moisture": 0.6
+    },
+    {
+      "year": "2020",
+      "rainfall_mm": 343.3,
+      "root_moisture": 0.54
+    },
+    {
+      "year": "2021",
+      "rainfall_mm": 141.7,
+      "root_moisture": 0.48
+    },
+    {
+      "year": "2022",
+      "rainfall_mm": 321.5,
+      "root_moisture": 0.51
+    },
+    {
+      "year": "2023",
+      "rainfall_mm": 378.7,
+      "root_moisture": 0.52
+    },
+    {
+      "year": "2024",
+      "rainfall_mm": 391.8,
+      "root_moisture": 0.55
+    },
+    {
+      "year": "2025",
+      "rainfall_mm": 297.3,
+      "root_moisture": 0.49
+    },
+    {
+      "year": "2026",
+      "rainfall_mm": 671.6,
+      "root_moisture": 0.65
+    }
+  ]
+}
