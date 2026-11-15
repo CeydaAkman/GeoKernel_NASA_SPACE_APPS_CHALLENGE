@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+<<<<<<< HEAD
+const OPENWEATHER_KEY = 
+=======
 const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
 
 function mapOwmIcon(iconCode) {
   if (!iconCode) return "⛅";

@@ -36,7 +36,11 @@ export default function DecisionCards({ data }) {
           Önerilen: {data.sowing_window.recommended}
         </div>
         <p style={{ margin: "6px 0 0 0", fontSize: "12px", color: "#4b5563" }}>
+<<<<<<< HEAD
+          NASA POWER kök bölgesi nem eşiğine göre güncellendi.
+=======
           SMAP kök bölgesi nem eşiğine göre güncellendi.
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         </p>
       </div>
 

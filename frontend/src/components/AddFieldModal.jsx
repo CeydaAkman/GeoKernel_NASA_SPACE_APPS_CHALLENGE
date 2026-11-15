@@ -27,6 +27,9 @@ const GAP_LOCATIONS = {
     { name: "Silvan", lat: 38.138, lon: 41.008 },
     { name: "Ergani", lat: 38.268, lon: 39.761 },
     { name: "Sur (Merkez)", lat: 37.914, lon: 40.236 },
+<<<<<<< HEAD
+  ]
+=======
   ],
   Gaziantep: [
     { name: "Nizip", lat: 37.010, lon: 37.794 },
@@ -53,6 +56,7 @@ const GAP_LOCATIONS = {
     { name: "Silopi", lat: 37.249, lon: 42.470 },
     { name: "İdil", lat: 37.339, lon: 41.889 },
   ],
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
 };
 
 export default function AddFieldModal({ isOpen, onClose, onSaveField }) {

@@ -1,5 +1,34 @@
 export default function FieldDetailsCard({ field, analysis, loading }) {
   const chartData = analysis?.chart_data || [];
+<<<<<<< HEAD
+  const latestYear =
+    chartData.length > 0 ? chartData[chartData.length - 1] : null;
+
+  const recentThree = chartData.slice(-3);
+
+  // Son 3 yılın ortalama yağışı
+  const avgRain =
+    recentThree.length > 0
+      ? Math.round(
+          recentThree.reduce(
+            (acc, item) => acc + (item.rainfall_mm || 0),
+            0
+          ) / recentThree.length
+        )
+      : null;
+
+  // Güncel toprak nemi
+  const currentMoisturePct =
+    latestYear?.root_moisture !== undefined &&
+    latestYear?.root_moisture !== null
+      ? Math.round(latestYear.root_moisture * 100)
+      : null;
+
+  // Kullanıcının anlayacağı sade iklim açıklaması
+  const climateDescription = analysis?.climate_analogue
+    ? analysis.climate_analogue
+    : "Tarlanızın iklim koşulları analiz edilerek benzer iklime sahip bölgeler belirleniyor...";
+=======
   const latestYear = chartData.length > 0 ? chartData[chartData.length - 1] : null;
   const recentThree = chartData.slice(-3);
 
@@ -14,6 +43,7 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
   const currentMoisturePct = latestYear?.root_moisture
     ? Math.round(latestYear.root_moisture * 100)
     : null;
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
 
   return (
     <div
@@ -28,7 +58,11 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
         minHeight: "465px",
       }}
     >
+<<<<<<< HEAD
+      {/* Başlık */}
+=======
       {/* Üst Başlık ve Uydu Rozeti */}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       <div
         style={{
           display: "flex",
@@ -45,8 +79,14 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             color: "#111827",
           }}
         >
+<<<<<<< HEAD
+          Tarla ve İklim Bilgileri
+        </h2>
+
+=======
           Tarla Fiziksel & İklim Özellikleri
         </h2>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         <span
           style={{
             fontSize: "11px",
@@ -58,11 +98,19 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             borderRadius: "6px",
           }}
         >
+<<<<<<< HEAD
+          {loading ? "Güncelleniyor..." : "NASA POWER"}
+        </span>
+      </div>
+
+      {/* Tarla Konumu */}
+=======
           {loading ? "Güncelleniyor..." : "NASA POWER / SMAP"}
         </span>
       </div>
 
       {/* 1. Parsel Kimliği ve Konum */}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       <div
         style={{
           padding: "12px 14px",
@@ -71,9 +119,22 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
           border: "1px solid #e5e7eb",
         }}
       >
+<<<<<<< HEAD
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#6b7280",
+            fontWeight: 700,
+          }}
+        >
+          TARLANIZ
+        </div>
+
+=======
         <div style={{ fontSize: "11px", color: "#6b7280", fontWeight: 700 }}>
           PARSEL KİMLİĞİ & KONUM
         </div>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         <div
           style={{
             fontSize: "16px",
@@ -82,6 +143,29 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             marginTop: "3px",
           }}
         >
+<<<<<<< HEAD
+          {field?.name || "Tarla bilgisi bulunamadı"}
+        </div>
+
+        <div
+          style={{
+            fontSize: "13px",
+            color: "#4b5563",
+            marginTop: "2px",
+          }}
+        >
+          {field?.city && field?.district
+            ? `${field.city} / ${field.district} • `
+            : ""}
+
+          {field?.lat !== undefined && field?.lon !== undefined
+            ? `${field.lat.toFixed(4)}° K, ${field.lon.toFixed(4)}° D`
+            : ""}
+        </div>
+      </div>
+
+      {/* Temel Bilgiler */}
+=======
           {field?.name}
         </div>
         <div style={{ fontSize: "13px", color: "#4b5563", marginTop: "2px" }}>
@@ -93,6 +177,7 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
       </div>
 
       {/* 2. Arazi Fiziksel Metrikleri (Yağış, Toprak Nemi, Havza Tipi) */}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       <div
         style={{
           display: "grid",
@@ -100,6 +185,10 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
           gap: "10px",
         }}
       >
+<<<<<<< HEAD
+        {/* Yağış */}
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         <div
           style={{
             padding: "11px 12px",
@@ -108,9 +197,22 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             border: "1px solid #bae6fd",
           }}
         >
+<<<<<<< HEAD
+          <div
+            style={{
+              fontSize: "11px",
+              color: "#0369a1",
+              fontWeight: 700,
+            }}
+          >
+            ORTALAMA YAĞIŞ
+          </div>
+
+=======
           <div style={{ fontSize: "11px", color: "#0369a1", fontWeight: 700 }}>
             3 YILLIK ORT. YAĞIŞ
           </div>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           <div
             style={{
               fontSize: "16px",
@@ -119,10 +221,28 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
               marginTop: "4px",
             }}
           >
+<<<<<<< HEAD
+            {avgRain !== null ? `${avgRain} mm` : "—"}
+          </div>
+
+          <div
+            style={{
+              fontSize: "10px",
+              color: "#64748b",
+              marginTop: "3px",
+            }}
+          >
+            Son 3 yıl
+          </div>
+        </div>
+
+        {/* Toprak Nemi */}
+=======
             {avgRain ? `${avgRain} mm` : "—"}
           </div>
         </div>
 
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         <div
           style={{
             padding: "11px 12px",
@@ -131,9 +251,22 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             border: "1px solid #bbf7d0",
           }}
         >
+<<<<<<< HEAD
+          <div
+            style={{
+              fontSize: "11px",
+              color: "#15803d",
+              fontWeight: 700,
+            }}
+          >
+            TOPRAK NEMİ
+          </div>
+
+=======
           <div style={{ fontSize: "11px", color: "#15803d", fontWeight: 700 }}>
             KÖK BÖLGESİ NEMİ
           </div>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           <div
             style={{
               fontSize: "16px",
@@ -142,10 +275,30 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
               marginTop: "4px",
             }}
           >
+<<<<<<< HEAD
+            {currentMoisturePct !== null
+              ? `%${currentMoisturePct}`
+              : "—"}
+          </div>
+
+          <div
+            style={{
+              fontSize: "10px",
+              color: "#64748b",
+              marginTop: "3px",
+            }}
+          >
+            Kök bölgesi
+          </div>
+        </div>
+
+        {/* Tarım Durumu */}
+=======
             {currentMoisturePct !== null ? `%${currentMoisturePct}` : "—"}
           </div>
         </div>
 
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         <div
           style={{
             padding: "11px 12px",
@@ -154,9 +307,22 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             border: "1px solid #e5e7eb",
           }}
         >
+<<<<<<< HEAD
+          <div
+            style={{
+              fontSize: "11px",
+              color: "#6b7280",
+              fontWeight: 700,
+            }}
+          >
+            TARIM ŞEKLİ
+          </div>
+
+=======
           <div style={{ fontSize: "11px", color: "#6b7280", fontWeight: 700 }}>
             ÜRETİM REJİMİ
           </div>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           <div
             style={{
               fontSize: "13px",
@@ -165,12 +331,30 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
               marginTop: "5px",
             }}
           >
+<<<<<<< HEAD
+            Kuru Tarım
+          </div>
+
+          <div
+            style={{
+              fontSize: "10px",
+              color: "#64748b",
+              marginTop: "3px",
+            }}
+          >
+            Yağışa dayalı
+=======
             Kuru Tarım (Yağışa Dayalı)
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
+      {/* Kullanıcı Dostu İklim Bilgisi */}
+=======
       {/* 3. İklim İkizi (Climate Analogue) Analizi */}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       <div
         style={{
           padding: "14px",
@@ -185,11 +369,20 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             fontSize: "11px",
             color: "#6b7280",
             fontWeight: 700,
+<<<<<<< HEAD
+            marginBottom: "8px",
+          }}
+        >
+          TARLANIZIN İKLİM DURUMU
+        </div>
+
+=======
             marginBottom: "6px",
           }}
         >
           İKLİM KAYMASI & ANALOG HAVZA PROFİLİ
         </div>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         <p
           style={{
             margin: 0,
@@ -198,8 +391,12 @@ export default function FieldDetailsCard({ field, analysis, loading }) {
             lineHeight: "1.55",
           }}
         >
+<<<<<<< HEAD
+          {climateDescription}
+=======
           {analysis?.climate_analogue ||
             "Uydu verileri üzerinden iklim benzerlik profili yükleniyor..."}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
         </p>
       </div>
     </div>

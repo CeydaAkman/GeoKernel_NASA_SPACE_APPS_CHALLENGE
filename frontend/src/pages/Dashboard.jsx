@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
 import { useEffect, useState } from "react";
 import {
   analyzeField,
@@ -15,9 +19,18 @@ const SELECTED_FIELD_KEY = "geokernel_selected_field_v1";
 const HISTORY_STORAGE_KEY = "geokernel_completed_plans_v1";
 
 export default function Dashboard({ user, onSyncActiveData }) {
+<<<<<<< HEAD
+  const [fields, setFields] = useState([]);
+
+  const [selectedFieldId, setSelectedFieldId] = useState(
+    () => sessionStorage.getItem(SELECTED_FIELD_KEY) || ""
+  );
+
+=======
   // Başlangıçta liste boş (Yeni kullanıcılar için hazır tarla yok)
   const [fields, setFields] = useState([]);
   const [selectedFieldId, setSelectedFieldId] = useState(() => sessionStorage.getItem(SELECTED_FIELD_KEY) || "");
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -25,31 +38,121 @@ export default function Dashboard({ user, onSyncActiveData }) {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [expandedPlanId, setExpandedPlanId] = useState(null);
 
+<<<<<<< HEAD
+  // Aktif tarla
+  const activeField =
+    fields.find((f) => String(f.id) === String(selectedFieldId)) ||
+    fields[0] ||
+    null;
+
+  // Kullanıcıya ait tarlaları getir
+  useEffect(() => {
+    if (!user?.id) return;
+
+=======
   // Aktif tarla (Eğer liste boşsa null döner)
   const activeField = fields.find((f) => String(f.id) === String(selectedFieldId)) || fields[0] || null;
 
   // Kullanıcıya ait tarlaları API'den çek
   useEffect(() => {
     if (!user?.id) return;
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
     let active = true;
 
     fetchUserFields(user.id)
       .then((dbFields) => {
+<<<<<<< HEAD
+        if (
+          active &&
+          Array.isArray(dbFields) &&
+          dbFields.length > 0
+        ) {
+          setFields(dbFields);
+
+          const exists = dbFields.some(
+            (f) => String(f.id) === String(selectedFieldId)
+          );
+
+=======
         if (active && Array.isArray(dbFields) && dbFields.length > 0) {
           setFields(dbFields);
           const exists = dbFields.some((f) => String(f.id) === String(selectedFieldId));
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           if (!exists) {
             setSelectedFieldId(String(dbFields[0].id));
           }
         }
       })
+<<<<<<< HEAD
+      .catch((error) => {
+        console.error("Tarlalar alınamadı:", error);
+      });
+=======
       .catch(() => {});
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
 
     return () => {
       active = false;
     };
   }, [user?.id]);
 
+<<<<<<< HEAD
+  // Seçilen tarlayı sessionStorage'a kaydet
+  useEffect(() => {
+    if (selectedFieldId) {
+      sessionStorage.setItem(
+        SELECTED_FIELD_KEY,
+        String(selectedFieldId)
+      );
+    }
+  }, [selectedFieldId]);
+
+  // Aktif tarla analizini getir
+  useEffect(() => {
+    if (!activeField) {
+      setAnalysis(null);
+      return;
+    }
+
+    let active = true;
+
+    setLoading(true);
+
+    analyzeField(
+      activeField.lat,
+      activeField.lon,
+      activeField.crop,
+      activeField.name
+    )
+      .then((res) => {
+        if (!active) return;
+
+        setAnalysis(res);
+
+        if (onSyncActiveData) {
+          onSyncActiveData(activeField, res);
+        }
+      })
+      .catch((error) => {
+        console.error("Tarla analizi alınamadı:", error);
+
+        if (active) {
+          setAnalysis(null);
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [activeField, onSyncActiveData]);
+
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
   // Geçmiş planları getir
   useEffect(() => {
     if (!activeField?.id) {
@@ -58,12 +161,26 @@ export default function Dashboard({ user, onSyncActiveData }) {
     }
 
     let active = true;
+<<<<<<< HEAD
+
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
     setHistoryLoading(true);
 
     const getLocalPlans = () => {
       try {
+<<<<<<< HEAD
+        const allLocal = JSON.parse(
+          localStorage.getItem(HISTORY_STORAGE_KEY) || "[]"
+        );
+
+        return allLocal.filter(
+          (p) => String(p.fieldId) === String(activeField.id)
+        );
+=======
         const allLocal = JSON.parse(localStorage.getItem(HISTORY_STORAGE_KEY) || "[]");
         return allLocal.filter((p) => String(p.fieldId) === String(activeField.id));
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       } catch {
         return [];
       }
@@ -79,6 +196,36 @@ export default function Dashboard({ user, onSyncActiveData }) {
 
     fetchFieldPlans(activeField.id, user.id)
       .then((data) => {
+<<<<<<< HEAD
+        if (!active) return;
+
+        const apiPlans = Array.isArray(data) ? data : [];
+
+        const apiIds = new Set(
+          apiPlans.map((p) => String(p.id))
+        );
+
+        const uniqueLocal = localPlans.filter(
+          (p) => !apiIds.has(String(p.id))
+        );
+
+        setHistory([...uniqueLocal, ...apiPlans]);
+      })
+      .catch((error) => {
+        console.error(
+          "Plan geçmişi API'den alınamadı, yerel kayıtlar gösteriliyor:",
+          error
+        );
+
+        if (active) {
+          setHistory(localPlans);
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setHistoryLoading(false);
+        }
+=======
         if (active) {
           const apiPlans = Array.isArray(data) ? data : [];
           const apiIds = new Set(apiPlans.map((p) => String(p.id)));
@@ -92,6 +239,7 @@ export default function Dashboard({ user, onSyncActiveData }) {
       })
       .finally(() => {
         if (active) setHistoryLoading(false);
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       });
 
     return () => {
@@ -99,6 +247,32 @@ export default function Dashboard({ user, onSyncActiveData }) {
     };
   }, [activeField?.id, user?.id]);
 
+<<<<<<< HEAD
+  // Yeni tarla ekle
+  const handleSaveNewField = async (draftField) => {
+    try {
+      const savedField = await saveUserField(
+        user?.id || 1,
+        draftField
+      );
+
+      setFields((prev) => [savedField, ...prev]);
+
+      setSelectedFieldId(String(savedField.id));
+    } catch (error) {
+      console.error(
+        "Tarla API'ye kaydedilemedi, yerel olarak ekleniyor:",
+        error
+      );
+
+      const localNewField = {
+        ...draftField,
+        id: Date.now(),
+      };
+
+      setFields((prev) => [localNewField, ...prev]);
+
+=======
   useEffect(() => {
     if (selectedFieldId) {
       sessionStorage.setItem(SELECTED_FIELD_KEY, String(selectedFieldId));
@@ -141,11 +315,111 @@ export default function Dashboard({ user, onSyncActiveData }) {
     } catch {
       const localNewField = { ...draftField, id: Date.now() };
       setFields((prev) => [localNewField, ...prev]);
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       setSelectedFieldId(String(localNewField.id));
     }
   };
 
   return (
+<<<<<<< HEAD
+    <div
+      style={{
+        maxWidth: "1600px",
+        margin: "0 auto",
+        padding: "24px",
+      }}
+    >
+      {/* RESPONSIVE VE EŞİT KART BOYUTLARI */}
+      <style>{`
+        .dashboard-top-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.15fr 1fr;
+          gap: 20px;
+          align-items: stretch;
+          width: 100%;
+        }
+
+        .dashboard-top-card {
+          height: 530px;
+          min-width: 0;
+          display: flex;
+          overflow: hidden;
+        }
+
+        .dashboard-top-card > * {
+          width: 100%;
+          height: 100% !important;
+          min-height: 0 !important;
+        }
+
+        @media (max-width: 1200px) {
+          .dashboard-top-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .dashboard-top-card {
+            height: 530px;
+          }
+        }
+
+        @media (max-width: 800px) {
+          .dashboard-top-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .dashboard-top-card {
+            height: 530px;
+          }
+        }
+      `}</style>
+
+      {/* ÜST NAVBAR */}
+      <Navbar
+        fields={fields}
+        selectedFieldId={selectedFieldId}
+        onSelectField={(val) =>
+          setSelectedFieldId(String(val))
+        }
+        onOpenAddModal={() =>
+          setIsAddModalOpen(true)
+        }
+      />
+
+      {/* TARLA YOKSA */}
+      {!activeField ? (
+        <div style={styles.emptyWelcomeCard}>
+          <div
+            style={{
+              fontSize: "48px",
+              marginBottom: "12px",
+            }}
+          >
+            🌾
+          </div>
+
+          <h2
+            style={{
+              color: "#064e3b",
+              margin: "0 0 8px",
+            }}
+          >
+            Henüz Kayıtlı Bir Tarlanız Bulunmuyor
+          </h2>
+
+          <p
+            style={{
+              color: "#6b7280",
+              maxWidth: "500px",
+              margin: "0 auto 20px",
+              fontSize: "14px",
+            }}
+          >
+            Sistemi kullanmaya başlamak ve iklim, toprak ve
+            tarımsal analizlerinizi görüntülemek için ilk
+            tarlanızı ekleyin.
+          </p>
+
+=======
     <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "24px" }}>
       {/* Üst Bar: Kayıtlı Tarlalar Seçicisi ve Tarla Ekle Butonu */}
       <Navbar
@@ -163,6 +437,7 @@ export default function Dashboard({ user, onSyncActiveData }) {
           <p style={{ color: "#6b7280", maxWidth: "500px", margin: "0 auto 20px", fontSize: "14px" }}>
             Sistemi kullanmaya başlamak ve iklim, toprak, rekolte analizlerini görüntülemek için ilk taryanızı ekleyin.
           </p>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           <button
             onClick={() => setIsAddModalOpen(true)}
             style={styles.primaryAddButton}
@@ -172,6 +447,23 @@ export default function Dashboard({ user, onSyncActiveData }) {
         </div>
       ) : (
         <>
+<<<<<<< HEAD
+          {/* =========================================
+              3 EŞİT BOYUTLU KART
+              HARİTA | TARLA BİLGİLERİ | HAVA DURUMU
+          ========================================= */}
+          <div className="dashboard-top-grid">
+
+            {/* 1. TARLA HARİTASI */}
+            <div className="dashboard-top-card">
+              <FieldMapCard
+                field={activeField}
+              />
+            </div>
+
+            {/* 2. TARLA VE İKLİM BİLGİLERİ */}
+            <div className="dashboard-top-card">
+=======
           {/* 3 Sütunlu Yan Yana Düzen: Harita | Fiziksel Özellikler | Dikey Hava Durumu */}
           <div
             style={{
@@ -188,6 +480,7 @@ export default function Dashboard({ user, onSyncActiveData }) {
 
             {/* 2. Sütun: Tarla Fiziksel Özellikleri */}
             <div>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
               <FieldDetailsCard
                 field={activeField}
                 analysis={analysis}
@@ -195,6 +488,21 @@ export default function Dashboard({ user, onSyncActiveData }) {
               />
             </div>
 
+<<<<<<< HEAD
+            {/* 3. HAVA DURUMU */}
+            <div className="dashboard-top-card">
+              <WeatherCard
+                key={activeField?.id}
+                field={activeField}
+              />
+            </div>
+
+          </div>
+
+          {/* =========================================
+              GEÇMİŞ PLAN KAYITLARI
+          ========================================= */}
+=======
             {/* 3. Sütun: Dikey 5 Günlük Hava Durumu */}
             <div>
               <WeatherCard key={activeField?.id} field={activeField} />
@@ -202,6 +510,7 @@ export default function Dashboard({ user, onSyncActiveData }) {
           </div>
 
           {/* GEÇMİŞ PLAN KAYITLARI */}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
           <div
             style={{
               marginTop: "28px",
@@ -211,12 +520,32 @@ export default function Dashboard({ user, onSyncActiveData }) {
               padding: "22px",
             }}
           >
+<<<<<<< HEAD
+            <h2
+              style={{
+                color: "#064e3b",
+                marginTop: 0,
+              }}
+            >
+              📚 Geçmiş Plan Kayıtları
+            </h2>
+
+            <p
+              style={{
+                color: "#6b7280",
+                fontSize: "13px",
+              }}
+            >
+              {activeField?.name} için tamamlanan sezonluk
+              planlar ve sonuçları.
+=======
             <h2 style={{ color: "#064e3b", marginTop: 0 }}>
               📚 Geçmiş Plan Kayıtları
             </h2>
 
             <p style={{ color: "#6b7280", fontSize: "13px" }}>
               {activeField?.name} için tamamlanan sezonluk planlar ve sonuçları.
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
             </p>
 
             {historyLoading ? (
@@ -230,10 +559,24 @@ export default function Dashboard({ user, onSyncActiveData }) {
                   color: "#6b7280",
                 }}
               >
+<<<<<<< HEAD
+                Bu tarlaya ait henüz kayıtlı bir plan bulunmuyor.
+                Bir sezonluk planı tamamladığınızda kayıtlarınız
+                burada görünecek.
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "grid",
+                  gap: "14px",
+                }}
+              >
+=======
                 Bu tarlaya ait henüz kayıtlı bir plan bulunmuyor. Bir sezonluk planı tamamladığınızda kayıtlarınız burada görünecek.
               </div>
             ) : (
               <div style={{ display: "grid", gap: "14px" }}>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                 {history.map((plan) => (
                   <div
                     key={plan.id}
@@ -253,6 +596,40 @@ export default function Dashboard({ user, onSyncActiveData }) {
                       }}
                     >
                       <div>
+<<<<<<< HEAD
+                        <h3
+                          style={{
+                            margin: "0 0 6px",
+                            color: "#064e3b",
+                          }}
+                        >
+                          {plan.crop}
+                        </h3>
+
+                        <div
+                          style={{
+                            fontSize: "12px",
+                            color: "#6b7280",
+                          }}
+                        >
+                          Kayıt tarihi:{" "}
+                          {plan.createdAt
+                            ? new Date(
+                                plan.createdAt
+                              ).toLocaleDateString("tr-TR")
+                            : "-"}
+                        </div>
+
+                        <div
+                          style={{
+                            marginTop: "8px",
+                            fontSize: "14px",
+                          }}
+                        >
+                          <strong>
+                            Gerçekleşen verim:
+                          </strong>{" "}
+=======
                         <h3 style={{ margin: "0 0 6px", color: "#064e3b" }}>
                           {plan.crop}
                         </h3>
@@ -266,6 +643,7 @@ export default function Dashboard({ user, onSyncActiveData }) {
 
                         <div style={{ marginTop: "8px", fontSize: "14px" }}>
                           <strong>Gerçekleşen verim:</strong>{" "}
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                           {plan.yieldValue} {plan.yieldUnit}
                         </div>
                       </div>
@@ -273,7 +651,13 @@ export default function Dashboard({ user, onSyncActiveData }) {
                       <button
                         onClick={() =>
                           setExpandedPlanId(
+<<<<<<< HEAD
+                            expandedPlanId === plan.id
+                              ? null
+                              : plan.id
+=======
                             expandedPlanId === plan.id ? null : plan.id
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                           )
                         }
                         style={{
@@ -292,16 +676,95 @@ export default function Dashboard({ user, onSyncActiveData }) {
                       </button>
                     </div>
 
+<<<<<<< HEAD
+                    {/* PLAN DETAYLARI */}
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                     {expandedPlanId === plan.id && (
                       <div
                         style={{
                           marginTop: "18px",
                           paddingTop: "16px",
+<<<<<<< HEAD
+                          borderTop:
+                            "1px solid #e5e7eb",
+=======
                           borderTop: "1px solid #e5e7eb",
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                         }}
                       >
                         <h4>Uygulama İşlemleri</h4>
 
+<<<<<<< HEAD
+                        {(plan.operations || []).map(
+                          (op, index) => {
+                            const status =
+                              plan.statuses?.[index];
+
+                            return (
+                              <div
+                                key={index}
+                                style={{
+                                  background: "#f9fafb",
+                                  padding: "12px",
+                                  borderRadius: "8px",
+                                  marginBottom: "8px",
+                                }}
+                              >
+                                <strong>
+                                  {op.title}
+                                </strong>
+
+                                <div
+                                  style={{
+                                    fontSize: "13px",
+                                    color: "#6b7280",
+                                  }}
+                                >
+                                  - {op.category} |{" "}
+                                  {op.window}
+                                </div>
+
+                                {op.detail && (
+                                  <div
+                                    style={{
+                                      fontSize: "13px",
+                                      color: "#4b5563",
+                                      marginTop: "4px",
+                                    }}
+                                  >
+                                    {op.detail}
+                                  </div>
+                                )}
+
+                                <div
+                                  style={{
+                                    marginTop: "6px",
+                                    fontWeight: 700,
+                                    color:
+                                      status === "applied"
+                                        ? "#047857"
+                                        : "#b91c1c",
+                                  }}
+                                >
+                                  {status === "applied"
+                                    ? "✓ Uygulandı"
+                                    : "✕ Uygulanmadı"}
+                                </div>
+                              </div>
+                            );
+                          }
+                        )}
+
+                        <h4>
+                          Sezon Sonu Değerlendirmesi
+                        </h4>
+
+                        <p>
+                          <strong>
+                            Genel başarı:
+                          </strong>{" "}
+=======
                         {(plan.operations || []).map((op, index) => {
                           const status = plan.statuses?.[index];
 
@@ -349,21 +812,39 @@ export default function Dashboard({ user, onSyncActiveData }) {
 
                         <p>
                           <strong>Genel başarı: </strong>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                           {{
                             very_good: "Çok başarılı",
                             good: "Başarılı",
                             average: "Orta",
+<<<<<<< HEAD
+                            poor:
+                              "Beklediğim gibi olmadı",
+=======
                             poor: "Beklediğim gibi olmadı",
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                           }[plan.rating] || plan.rating}
                         </p>
 
                         <p>
+<<<<<<< HEAD
+                          <strong>
+                            Gerçekleşen verim:
+                          </strong>{" "}
+=======
                           <strong>Gerçekleşen verim: </strong>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                           {plan.yieldValue} {plan.yieldUnit}
                         </p>
 
                         <p>
+<<<<<<< HEAD
+                          <strong>
+                            Çiftçi gözlemleri:
+                          </strong>
+=======
                           <strong>Çiftçi gözlemleri:</strong>
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
                         </p>
 
                         <div
@@ -387,6 +868,10 @@ export default function Dashboard({ user, onSyncActiveData }) {
         </>
       )}
 
+<<<<<<< HEAD
+      {/* TARLA EKLEME MODALI */}
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
       <AddFieldModal
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
@@ -406,6 +891,10 @@ const styles = {
     marginTop: "20px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
   },
+<<<<<<< HEAD
+
+=======
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
   primaryAddButton: {
     background: "#064e3b",
     color: "#ffffff",
@@ -415,6 +904,13 @@ const styles = {
     fontSize: "15px",
     fontWeight: 700,
     cursor: "pointer",
+<<<<<<< HEAD
+    boxShadow:
+      "0 2px 6px rgba(6, 78, 59, 0.2)",
+  },
+};
+=======
     boxShadow: "0 2px 6px rgba(6, 78, 59, 0.2)",
   },
 };
+>>>>>>> d270ed024f92099877e93a23c188ff36246eb522
